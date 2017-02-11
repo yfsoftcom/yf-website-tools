@@ -30,7 +30,7 @@ const checkKeyword = async (domain, keyword, page) => {
       let doc = await fetch('http://www.baidu.com/s?wd=' + encodeURIComponent(keyword) + '\&pn=' + ((i)*10))
       doc = await doc.text()
       if(keywordParse(doc, domain)){
-        flag = {page: i+1 }
+        flag = { page: i + 1 }
         break
       }
     }catch(e){
@@ -45,7 +45,7 @@ const checkKeywords = async (site) => {
   let results = []
   for(let j = 0; j< site.keywords.length ; j++){
     let keyword = site.keywords[j]
-    let result = await checkKeyword(site.domain, keyword, site.result.page||5)
+    let result = await checkKeyword(site.domain, keyword, site.result.page || 5)
     results.push({ keyword: keyword, rank: result})
   }
   return results
