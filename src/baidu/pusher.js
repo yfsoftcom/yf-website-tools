@@ -22,7 +22,7 @@ const pushUrls = async (site) => {
       body: urls
     }
   )
-  data = await data.text()
+  data = await data.json()
   return data
 }
 
