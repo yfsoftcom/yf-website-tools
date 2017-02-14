@@ -23,7 +23,7 @@ const jobDetailParse = (body) =>{
       data.exp = $item.text()
     }
   })
-  data.desc = _.replace($body.find('.posMsg').text(), /\t/g, '')
+  data.desc = _.replace($body.find('.posMsg').text(), /\t/g, ' ')
   return data
 }
 

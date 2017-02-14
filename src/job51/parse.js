@@ -12,7 +12,7 @@ const jobDetailParse = (body) =>{
   body = getBodyContent(body)
   let $body = $(body)
   let data = {}
-  data.desc = _.replace($body.find('.job_msg ').text(), /\t/g, '')
+  data.desc = _.replace($body.find('.job_msg ').text(), /\t/g, ' ')
   data.desc = _.replace(data.desc, /\n/g, ',')
   return data
 }
