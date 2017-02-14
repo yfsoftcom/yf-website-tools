@@ -7,16 +7,16 @@
     "compile": "babel -d lib/ src/",
     "prepublish": "npm run compile",
     "test": "node index.babel.js"
-
   },
   "author": "wangfan@yunplus.io",
   "license": "ISC",
   "dependencies": {
+    "async": "^2.1.4",
     "babel-polyfill": "^6.13.0",
     "babel-runtime": "^6.0.0",
+    "bluebird": "^3.4.7",
     "jquery": "^3.1.1",
     "jsdom": "^9.9.1",
-    "jquery": "^3.1.1",
     "lodash": "^4.16.1",
     "node-fetch": "^1.6.3"
   },
