@@ -1,4 +1,4 @@
-import * as crawler from './crawler'
+import * as spider from './spider'
 import * as pusher from './pusher'
 
-export { crawler, pusher }
+export { spider, pusher }
