@@ -4,19 +4,30 @@ import {baidu, BasicSpider} from './src'
 // console.log('1 2 3 4 5 6 7 8 9'.match(new RegExp('[1-8]', 'g')))
 
 // console.log('hfdjas.p[11-91].html'.match(/\[(\d*)-(\d*)\]/g))
-/*
+///*
 (async () => {
   let data = await BasicSpider(
-    'http://yz.58.com/ruanjiangong/pn[1-3]',
+    'http://yz.58.com/ruanjiangong/pn1',
     {
-      id: { xpath: "//div[@id='infolist']//dd/i/@infoid"},
+      id: { xpath: "//div[@id='infolist']//dd/i/@infoid" },
       title: { xpath: "//div[@id='infolist']//dt/a/text()"},
       company: { xpath: "//div[@id='infolist']//dd/a/text()"},
       area: { xpath: "//div[@id='infolist']//dd[@class='w96']/text()"},
       publishAt: { xpath: "//div[@id='infolist']//dd[@class='w68']/text()"},
     },
     {
-      convert: true
+      convert: true,
+      onlyBody: true,
+      reject: false,
+      children: {
+        url: 'http://yz.58.com/tech/[?]x.shtml',
+        id: 'id',
+        options: {convert: true},
+        xpaths: {
+          sala: { xpath: "//div[@class='posCont']//li[@class='condition'][1]//strong/text()" },
+          edu: { xpath: "//div[@class='posCont']//li[@class='condition'][1]//div[@class='fl']/text()" },
+        }
+      }
     }
   )
 
@@ -36,7 +47,7 @@ import {baidu, BasicSpider} from './src'
   })
 })() //*/
 
-///*
+/*
 (async () => {
   let site = {
     token: '0AYcFf1d70qGvufH',
