@@ -1,4 +1,4 @@
 import * as baidu from './baidu'
-import { BasicSpider } from './tool'
+import { DomXpathSelector, BasicSpider } from './tool'
 
-export {baidu, BasicSpider}
+export {baidu, BasicSpider, DomXpathSelector}

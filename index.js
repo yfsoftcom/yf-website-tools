@@ -1,10 +1,10 @@
 import _ from 'lodash'
-import {baidu, BasicSpider} from './src'
+import {baidu, BasicSpider, DomXpathSelector} from './src'
 
 // console.log('1 2 3 4 5 6 7 8 9'.match(new RegExp('[1-8]', 'g')))
 
 // console.log('hfdjas.p[11-91].html'.match(/\[(\d*)-(\d*)\]/g))
-///*
+/*
 (async () => {
   let data = await BasicSpider(
     'http://yz.58.com/ruanjiangong/pn1',
@@ -93,11 +93,30 @@ import {baidu, BasicSpider} from './src'
 //     console.log(e)
 //   }
 // })()
-// let domXpathSelector = new DomXpathSelector('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>http://www.xinyangjlm.com/1001.html</loc><lastmod>2017-02-15T08:00:06.894Z</lastmod><data><display><title>关于卷帘门的使用帮助</title><pubTime>2017-02-13T09:58:58.000Z</pubTime><breadCrumb title="help" url="http://www.xinyangjlm.com/categories/help/"/></display></data></url><url><loc>http://www.xinyangjlm.com/7.html</loc><lastmod>2017-02-15T07:59:57.974Z</lastmod><data><display><title>快速门</title><pubTime>2016-11-19T16:00:00.000Z</pubTime><breadCrumb title="product" url="http://www.xinyangjlm.com/categories/product/"/></display></data></url></urlset>',
-// {
-//   urls: 'http://www.sitemaps.org/schemas/sitemap/0.9'
-// })
-//
-//
-// let data = domXpathSelector.select('//urls:loc/text()')
-// console.log(data)
+let domXpathSelector = new DomXpathSelector(`
+  <urlset>
+    <url>
+      <loc>http://www.xinyangjlm.com/1001.html</loc>
+      <lastmod>2017-02-15T08:00:06.894Z</lastmod>
+      <data>
+        <display>
+          <title>关于卷帘门的使用帮助</title>
+          <pubTime>2017-02-13T09:58:58.000Z</pubTime>
+          <breadCrumb title="help" url="http://www.xinyangjlm.com/categories/help/"/>
+        </display>
+      </data>
+    </url>
+    <url>
+      <loc>http://www.xinyangjlm.com/7.html</loc>
+      <lastmod>2017-02-15T07:59:57.974Z</lastmod>
+      <data>
+        <display>
+          <title>快速门</title>
+          <pubTime>2016-11-19T16:00:00.000Z</pubTime>
+          <breadCrumb title="product" url="http://www.xinyangjlm.com/categories/product/"/>
+        </display>
+      </data>
+    </url>
+  </urlset>`)
+let data = domXpathSelector.select('//url//*/text()')
+console.log(data)
