@@ -20,8 +20,12 @@ const singlePageSpider = (item, callback)=>{
     .getSelector(item.options)
     .then((selector)=>{
       let data = selector.select(item.xpaths)
-      if(_.assign({convert: false}, item.options).convert){
+      let options = _.assign({convert: false}, item.options)
+      if(options.convert){
         data = ObjectConvert(data)
+      }
+      if(options.reject){
+        data = _.reject(data, options.reject)
       }
       item.data = data
       callback()
