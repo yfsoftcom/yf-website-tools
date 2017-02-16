@@ -1,6 +1,6 @@
 {
   "name": "yf-website-tool",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "tools for website ,ex: baidu pusher",
   "main": "lib/index.js",
   "scripts": {
@@ -18,7 +18,9 @@
     "jquery": "^3.1.1",
     "jsdom": "^9.9.1",
     "lodash": "^4.16.1",
-    "node-fetch": "^1.6.3"
+    "node-fetch": "^1.6.3",
+    "xmldom": "^0.1.27",
+    "xpath": "^0.0.23"
   },
   "devDependencies": {
     "babel-core": "^6.14.0",

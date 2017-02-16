@@ -1,5 +1,32 @@
 # yf-website-tool
 
+Feature:
+
+- spider
+
+获取 http://yz.58.com/ruanjiangong/pn1, http://yz.58.com/ruanjiangong/pn1, http://yz.58.com/ruanjiangong/pn1 页面中的元素
+
+```javascript
+(async () => {
+  let data = await BasicSpider(
+    'http://yz.58.com/ruanjiangong/pn[1-3]',
+    {
+      id: { xpath: "//div[@id='infolist']//dd/i/@infoid"},
+      title: { xpath: "//div[@id='infolist']//dt/a/text()"},
+      company: { xpath: "//div[@id='infolist']//dd/a/text()"},
+      area: { xpath: "//div[@id='infolist']//dd[@class='w96']/text()"},
+      publishAt: { xpath: "//div[@id='infolist']//dd[@class='w68']/text()"},
+    },
+    {
+      convert: true
+    }
+  )
+  console.log(data)
+})() //*/
+
+```
+
+
 提供一些工具,方便进行网站的收录,查看网站排名等等
 
 ex:

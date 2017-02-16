@@ -1,13 +1,16 @@
 import _ from 'lodash'
 import fetch from 'node-fetch'
-import {sitemapParse} from './parse'
+import { BasicSpider } from '../tool'
 
 const pushUrls = async (site) => {
   let urls
   if(site.sitemap){
-    let doc = await fetch('http://' + site.domain + '/' + site.sitemap)
-    doc = await doc.text()
-    urls = sitemapParse(doc)
+    urls = await BasicSpider('http://' + site.domain + '/' + site.sitemap,
+                "//urls:loc/text()",
+                {
+                  onlyBody: false,
+                  namespace: {urls: 'http://www.sitemaps.org/schemas/sitemap/0.9'},
+                })
     urls.push('http://' + site.domain);
     urls = urls.join('\n');
   }else{
