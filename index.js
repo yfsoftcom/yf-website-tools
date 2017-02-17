@@ -47,20 +47,20 @@ import {baidu, BasicSpider, DomXpathSelector} from './src'
   })
 })() //*/
 
-/*
+///*
 (async () => {
   let site = {
     token: '0AYcFf1d70qGvufH',
-    result: {to: '1794947912@qq.com', subject: '百度收录', page: 3},
-    domain: 'www.xinyangjlm.com',
-    keywords: ['新扬卷帘门', '扬州卷帘门'],
+    result: {to: '1794947912@qq.com', subject: '百度收录', page: 1},
+    domain: 'blog.yunplus.io',
+    keywords: [],
     sitemap: 'baidusitemap.xml',
     update: false,
     urls: false
   }
   let data = {}
   try{
-    data.site = await baidu.spider.checkSite('www.xinyangjlm.com')
+    data.site = await baidu.spider.checkSite(site.domain)
     data.keywords = await baidu.spider.checkKeywords(site)
     data.push = await baidu.pusher.pushUrls(site)
     console.log(JSON.stringify(data, null, 2))
@@ -93,6 +93,7 @@ import {baidu, BasicSpider, DomXpathSelector} from './src'
 //     console.log(e)
 //   }
 // })()
+/*
 let domXpathSelector = new DomXpathSelector(`
   <urlset>
     <url>
@@ -118,5 +119,6 @@ let domXpathSelector = new DomXpathSelector(`
       </data>
     </url>
   </urlset>`)
-let data = domXpathSelector.select('//url//*/text()')
+let data = domXpathSelector.select('//url///text()')
 console.log(data)
+//*/

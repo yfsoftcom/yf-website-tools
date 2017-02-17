@@ -1,6 +1,6 @@
 {
   "name": "yf-website-tool",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "tools for website ,ex: baidu pusher",
   "main": "lib/index.js",
   "scripts": {
